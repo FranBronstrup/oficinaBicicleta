@@ -1,13 +1,19 @@
-import express, { Express } from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 let server: Express = express();
 import cors from 'cors';
+import cidadeRoutes from './routes/cidades'
 
 
 let port: number = Number(process.env.SERVER_PORT || 3000);
 
 server.use(cors());
 server.use(express.json());
-server.use();
+server.use((req: Request, res: Response, next: NextFunction) => {
+    console.log('|' + (new Date()) + '|' + req.method + ' ' + req.url);
+    next();
+});
+
+server.use(cidadeRoutes);
 
 export default {
     start() {
