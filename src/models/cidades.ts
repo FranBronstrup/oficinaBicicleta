@@ -8,5 +8,4 @@ export class Cidades extends BaseEntity {
   @Column()
   public nome: string;
 
- 
 }
