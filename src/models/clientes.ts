@@ -3,7 +3,7 @@ import { Cidades } from "./cidades";
 import internal from "stream";
 
 @Entity('clientes')
-export class Doador extends BaseEntity {
+export class Clientes extends BaseEntity {
     @PrimaryGeneratedColumn()
     public id: number
 
@@ -26,10 +26,6 @@ export class Doador extends BaseEntity {
     public id_cidade: number;
 
     @Column()
-    public estado: string
-
-    @ManyToOne(() => Cidades, (cidade) => cidade.doadores, {
-        eager: true})
-    public cidade: Cidades;
+    public estado: string;
 
 }
